@@ -1,10 +1,13 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-const PrimaryButton = ({label, triggerclick}) => {
+const PrimaryButton = ({label, triggerclick, disabled}) => {
   return (
     <View>
-      <TouchableOpacity style={styles.button} onPress={triggerclick}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={triggerclick}
+        disabled={disabled}>
         <Text style={styles.buttontext}>{label}</Text>
       </TouchableOpacity>
     </View>
