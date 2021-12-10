@@ -1,13 +1,16 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {styles} from './Homescreen.style';
 import StatusBarMain from '../../components/StatusBarMain';
 import NavBar from '../../components/NavBar';
+import SearchBar from '../../components/SearchBar';
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <StatusBarMain />
-      <Text>Hello world</Text>
+      <ScrollView>
+        <SearchBar />
+      </ScrollView>
       <NavBar active="home" />
     </View>
   );

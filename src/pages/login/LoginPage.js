@@ -17,6 +17,7 @@ const LoginPage = ({navigation}) => {
     Toast.show({
       type: 'info',
       text1: 'Wait for a second',
+      position: 'bottom',
     });
     base
       .post('api/auth/login', {
@@ -24,16 +25,20 @@ const LoginPage = ({navigation}) => {
         password: password,
       })
       .then(Response => {
+        console.log(Response);
         Toast.show({
           type: 'success',
           text1: `Welcome ${Response.data.name}`,
+          position: 'bottom',
         });
+        navigation.navigate('home');
         setDisabled(false);
       })
       .catch(Error => {
         Toast.show({
           type: 'error',
           text1: `${Error.message}`,
+          position: 'bottom',
         });
         setDisabled(false);
       });

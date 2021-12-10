@@ -18,6 +18,7 @@ const SignUpPage = ({navigation}) => {
     Toast.show({
       type: 'info',
       text1: 'Wait for a second',
+      position: 'bottom',
     });
     base
       .post('api/auth/adduser', {
@@ -32,13 +33,16 @@ const SignUpPage = ({navigation}) => {
           type: 'success',
           text1: `Welcome ${Response.data.name}`,
           text2: 'Please Login',
+          position: 'bottom',
         });
         setDisabled(false);
+        navigation.navigate('loginpage');
       })
       .catch(Error => {
         Toast.show({
           type: 'error',
           text1: `${Error}`,
+          position: 'bottom',
         });
         setDisabled(false);
       });

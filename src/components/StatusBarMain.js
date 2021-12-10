@@ -5,9 +5,8 @@ const StatusBarMain = ({transparent}) => {
   return (
     <StatusBar
       animated={true}
-      backgroundColor="transparent"
-      // backgroundColor={transparent ? 'transparent' : '#53B175'}
-      translucent={transparent}
+      backgroundColor={transparent ? 'transparent' : '#53B175'}
+      translucent={transparent ? true : false}
     />
   );
 };
