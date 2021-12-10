@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
   terms: {
     marginBottom: 20,
     fontWeight: '600',
+    color: '#000',
   },
   color: {
     color: '#53B175',

@@ -18,7 +18,7 @@ const PrimaryInput = ({
   const [pw, setPw] = useState(password);
   return (
     <View style={styles.container}>
-      <Text>{label}</Text>
+      <Text style={styles.label}>{label}</Text>
       <TextInput
         style={styles.input}
         secureTextEntry={pw}
@@ -52,5 +52,9 @@ const styles = StyleSheet.create({
   pass: {
     textAlign: 'right',
     fontWeight: '600',
+    color: '#000',
+  },
+  label: {
+    color: '#000',
   },
 });

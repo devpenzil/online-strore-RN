@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const JumbtoAuth = ({label, tag}) => {
+const JumbtoAuth = ({label, tag, triggerclick}) => {
   return (
     <View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={triggerclick}>
         <Text style={styles.text}>
           {label}
           <Text style={styles.color}>{tag}</Text>

@@ -2,12 +2,10 @@ import React from 'react';
 import {View, Text, ImageBackground, Image} from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import StatusBarMain from '../../components/StatusBarMain';
-import {setItem, getItem} from 'react-native-shared-preferences';
 import {styles} from './Onboard.style';
-const Onboard = () => {
+const Onboard = ({navigation}) => {
   const testfunction = () => {
-    setItem('key', 12);
-    alert(getItem('key'));
+    navigation.navigate('loginpage');
   };
   return (
     <ImageBackground source={require('../../assets/onboardbg.png')}>

@@ -6,7 +6,7 @@ const AuthHeader = ({heading, tagline}) => {
     <View style={styles.container}>
       <Image style={styles.image} source={require('../assets/logocolor.png')} />
       <Text style={styles.header}>{heading}</Text>
-      <Text>{tagline}</Text>
+      <Text style={styles.tagline}>{tagline}</Text>
     </View>
   );
 };
@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000',
   },
-  tagline: {},
+  tagline: {
+    color: '#000',
+  },
   image: {
     alignSelf: 'center',
     marginVertical: 20,

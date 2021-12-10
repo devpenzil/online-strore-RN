@@ -8,7 +8,7 @@ import StatusBarMain from '../../components/StatusBarMain';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {styles} from './LoginPage.style';
 import base from '../../axios/Axios';
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [disabled, setDisabled] = useState(false);
@@ -62,7 +62,13 @@ const LoginPage = () => {
           disabled={disabled}
         />
       </View>
-      <JumbtoAuth label="Don't have a account" tag=" Sign Up" />
+      <JumbtoAuth
+        label="Don't have a account"
+        tag=" Sign Up"
+        triggerclick={() => {
+          navigation.navigate('signuppage');
+        }}
+      />
     </View>
   );
 };
