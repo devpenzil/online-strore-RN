@@ -5,7 +5,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 import StatusBarMain from '../../components/StatusBarMain';
 import {styles} from './ProductDetails.style';
 const ProductDetails = () => {
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(1);
   const data = {
     id: '-3NKbVZ0xygp_ePXzJ3on',
     itemname: 'Red Apple',

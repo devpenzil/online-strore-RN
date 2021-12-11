@@ -22,9 +22,11 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: '600',
     color: '#000',
+    fontFamily: 'Roboto-Bold',
   },
   tagline: {
     color: '#000',
+    fontFamily: 'Roboto-Regular',
   },
   image: {
     alignSelf: 'center',

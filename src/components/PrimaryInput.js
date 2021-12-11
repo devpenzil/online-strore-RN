@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     fontWeight: '600',
     color: '#000',
+    fontFamily: 'Roboto-Bold',
   },
   label: {
     color: '#000',

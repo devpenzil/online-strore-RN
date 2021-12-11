@@ -18,11 +18,13 @@ export const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 48,
+    fontFamily: 'Roboto-Bold',
     fontWeight: '600',
     marginVertical: 10,
   },
   tagline: {
     textAlign: 'center',
     color: '#fff',
+    fontFamily: 'Roboto-Light',
   },
 });

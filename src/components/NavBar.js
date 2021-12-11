@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   icontext: {
     fontSize: 12,
     color: '#000',
+    fontFamily: 'Roboto-Regular',
   },
   icon: {
     alignSelf: 'center',

@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     marginLeft: 10,
+    fontFamily: 'Roboto-Regular',
   },
   firstbox: {
     display: 'flex',

@@ -43,11 +43,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#000',
     fontWeight: '600',
+    fontFamily: 'Roboto-Bold',
   },
   desc: {
     color: '#000',
     textAlign: 'justify',
     marginTop: 10,
+    fontFamily: 'Roboto-Regular',
   },
   icon: {
     transform: [{rotate: '180deg'}],

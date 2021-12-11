@@ -28,5 +28,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#fff',
     fontWeight: '600',
+    fontFamily: 'Roboto-Bold',
   },
 });

@@ -35,10 +35,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '800',
     color: '#000',
+    fontFamily: 'Roboto-Bold',
   },
   pemail: {
     marginLeft: 20,
     color: '#7C7C7C',
     fontSize: 13,
+    fontFamily: 'Roboto-Medium',
   },
 });

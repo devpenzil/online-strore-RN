@@ -20,8 +20,10 @@ const styles = StyleSheet.create({
   text: {
     color: '#000',
     fontWeight: '800',
+    fontFamily: 'Roboto-Regular',
   },
   color: {
     color: '#53B175',
+    fontFamily: 'Roboto-Regular',
   },
 });
