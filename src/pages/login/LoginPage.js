@@ -8,6 +8,7 @@ import StatusBarMain from '../../components/StatusBarMain';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {styles} from './LoginPage.style';
 import base from '../../axios/Axios';
+import SharedPreferences from 'react-native-shared-preferences';
 const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,15 +27,17 @@ const LoginPage = ({navigation}) => {
       })
       .then(Response => {
         console.log(Response);
+        // SharedPreferences.setItem('token', 5345634);
         Toast.show({
           type: 'success',
           text1: `Welcome ${Response.data.name}`,
           position: 'bottom',
         });
-        navigation.navigate('home');
         setDisabled(false);
+        navigation.navigate('home');
       })
       .catch(Error => {
+        console.log(Error);
         Toast.show({
           type: 'error',
           text1: `${Error.message}`,

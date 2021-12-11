@@ -78,3 +78,18 @@ public class MainApplication extends Application implements ReactApplication {
     }
   }
 }
+
+// import in.sriraman.sharedpreferences.RNSharedPreferencesReactPackage;  
+
+// public class MainActivity extends ReactActivity {
+
+//   @Override
+//   protected List<ReactPackage> getPackages() {
+//       return Arrays.<ReactPackage>asList(
+//           new MainReactPackage(),
+//           new RNSharedPreferencesReactPackage() 
+//       );
+//   }
+
+
+// }

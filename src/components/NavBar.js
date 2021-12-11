@@ -62,6 +62,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+
+    elevation: 12,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   active: {
     backgroundColor: 'red',
