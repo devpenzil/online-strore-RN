@@ -4,17 +4,54 @@ import Accordian from '../../components/Accordian';
 import PrimaryButton from '../../components/PrimaryButton';
 import StatusBarMain from '../../components/StatusBarMain';
 import {styles} from './ProductDetails.style';
+import base, {token, cmail} from '../../axios/Axios';
+import {Toast} from 'react-native-toast-message/lib/src/Toast';
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
+  const [disable, setDisable] = useState(false);
   const data = {
     id: '-3NKbVZ0xygp_ePXzJ3on',
-    itemname: 'Red Apple',
-    itemprice: 140,
+    itemname: 'Kashmir Grapes',
+    itemprice: 210,
     itemdescription:
       'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.',
     itemcategory: 'Fresh Fruits & Vegitables',
     image:
-      'https://images.unsplash.com/photo-1610397962076-02407a169a5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      'https://images.unsplash.com/photo-1599819177626-b50f9dd21c9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGdyYXBlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+  };
+  const addtocart = () => {
+    setDisable(true);
+    Toast.show({
+      type: 'info',
+      text1: 'Wait for a second',
+      position: 'bottom',
+    });
+    base
+      .post('api/cart/addtocart', {
+        token: token,
+        email: cmail,
+        newitem: {
+          details: data,
+          count: count,
+        },
+      })
+      .then(Response => {
+        console.log(Response);
+        Toast.show({
+          type: 'success',
+          text1: Response.data,
+          position: 'bottom',
+        });
+        setDisable(false);
+      })
+      .catch(Error => {
+        Toast.show({
+          type: 'error',
+          text1: Error.message,
+          position: 'bottom',
+        });
+        setDisable(false);
+      });
   };
   return (
     <View style={styles.container}>
@@ -53,7 +90,11 @@ const ProductDetails = () => {
         </View>
       </ScrollView>
       <View style={styles.button}>
-        <PrimaryButton label="Add to cart" />
+        <PrimaryButton
+          disabled={disable}
+          label="Add to cart"
+          triggerclick={addtocart}
+        />
       </View>
     </View>
   );

@@ -5,4 +5,6 @@ const base = axios.create({
 });
 export const token =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIzODBkYThjZTNmNTAwMDk1Y2UwYWUiLCJpYXQiOjE2MzkyMTQ2MDh9.Rv9r4_YRxA4GEzecFBpicqmqWb-QI9Csra2_a0DwNSc';
+
+export const cmail = 'qa1@yopmail.com';
 export default base;
