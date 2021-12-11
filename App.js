@@ -11,6 +11,7 @@ import Explore from './src/pages/explore/Explore';
 import Cart from './src/pages/cart/Cart';
 import Favourites from './src/pages/favourites/Favourites';
 import Account from './src/pages/account/Account';
+import ProductDetails from './src/pages/productdetails/ProductDetails';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Stack.Screen name="cart" component={Cart} />
           <Stack.Screen name="favourites" component={Favourites} />
           <Stack.Screen name="account" component={Account} />
+          <Stack.Screen name="productdetails" component={ProductDetails} />
         </Stack.Navigator>
       </NavigationContainer>
       <Toast />

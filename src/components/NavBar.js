@@ -28,7 +28,7 @@ const NavBar = ({active}) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('favourites');
+          navigation.navigate('productdetails');
         }}>
         <Image
           style={styles.icon}

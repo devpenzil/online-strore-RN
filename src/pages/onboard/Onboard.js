@@ -2,10 +2,13 @@ import React from 'react';
 import {View, Text, ImageBackground, Image} from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import StatusBarMain from '../../components/StatusBarMain';
+import {token} from '../../axios/Axios';
 import {styles} from './Onboard.style';
 const Onboard = ({navigation}) => {
   const testfunction = () => {
-    navigation.navigate('loginpage');
+    token === ''
+      ? navigation.navigate('loginpage')
+      : navigation.navigate('home');
   };
   return (
     <ImageBackground source={require('../../assets/onboardbg.png')}>
