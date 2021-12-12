@@ -9,9 +9,9 @@ import SplashScreen from './src/pages/splashscreen/SplashScreen';
 import HomeScreen from './src/pages/homescreen/HomeScreen';
 import Explore from './src/pages/explore/Explore';
 import Cart from './src/pages/cart/Cart';
-import Favourites from './src/pages/favourites/Favourites';
 import Account from './src/pages/account/Account';
 import ProductDetails from './src/pages/productdetails/ProductDetails';
+import OrderAccepted from './src/pages/orderaccepted/OrderAccepted';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -27,9 +27,9 @@ const App = () => {
           <Stack.Screen name="home" component={HomeScreen} />
           <Stack.Screen name="explore" component={Explore} />
           <Stack.Screen name="cart" component={Cart} />
-          <Stack.Screen name="favourites" component={Favourites} />
           <Stack.Screen name="account" component={Account} />
           <Stack.Screen name="productdetails" component={ProductDetails} />
+          <Stack.Screen name="orderaccepted" component={OrderAccepted} />
         </Stack.Navigator>
       </NavigationContainer>
       <Toast />

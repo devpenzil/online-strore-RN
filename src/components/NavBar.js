@@ -28,18 +28,6 @@ const NavBar = ({active}) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('productdetails');
-        }}>
-        <Image
-          style={styles.icon}
-          source={require('../assets/favourite.png')}
-        />
-        {active === 'favourites' && (
-          <Text style={styles.icontext}>favourites</Text>
-        )}
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
           navigation.navigate('account');
         }}>
         <Image style={styles.icon} source={require('../assets/account.png')} />

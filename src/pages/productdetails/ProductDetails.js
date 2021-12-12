@@ -33,6 +33,7 @@ const ProductDetails = () => {
         newitem: {
           details: data,
           count: count,
+          total: data.itemprice * count,
         },
       })
       .then(Response => {

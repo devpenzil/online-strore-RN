@@ -4,7 +4,7 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 const CartItem = ({data}) => {
   const {id, image, itemcategory, itemdescription, itemname, itemprice} =
     data.details;
-  const {count} = data;
+  const {count, total} = data;
   return (
     <View style={styles.container}>
       <View style={styles.smallbox}>
@@ -15,7 +15,7 @@ const CartItem = ({data}) => {
         </View>
       </View>
       <View>
-        <Text style={styles.amount}>Rs. {itemprice * count}</Text>
+        <Text style={styles.amount}>Rs. {total}</Text>
       </View>
     </View>
   );
