@@ -3,6 +3,8 @@ import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Accordian from './Accordian';
 import PrimaryButton from './PrimaryButton';
 import {useNavigation} from '@react-navigation/native';
+import base, {token, cmail} from '../axios/Axios';
+import {Toast} from 'react-native-toast-message/lib/src/Toast';
 const CheckOut = ({amount, close}) => {
   const navigation = useNavigation();
   return (
@@ -17,7 +19,27 @@ const CheckOut = ({amount, close}) => {
             <PrimaryButton
               label="Place order"
               triggerclick={() => {
-                navigation.navigate('orderaccepted');
+                Toast.show({
+                  type: 'info',
+                  text1: 'Wait for a second',
+                  position: 'bottom',
+                });
+                base
+                  .post('api/cart/clearcart', {
+                    token: token,
+                    email: cmail,
+                  })
+                  .then(Response => {
+                    navigation.navigate('orderaccepted');
+                  })
+                  .catch(Error => {
+                    console.log(Error);
+                    Toast.show({
+                      type: 'error',
+                      text1: 'Please try again',
+                      position: 'bottom',
+                    });
+                  });
               }}
             />
           </View>

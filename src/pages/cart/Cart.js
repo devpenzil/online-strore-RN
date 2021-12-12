@@ -9,6 +9,7 @@ import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import PrimaryButton from '../../components/PrimaryButton';
 import CheckOut from '../../components/CheckOut';
 import Spacer from '../../components/Spacer';
+import StatusBarMain from '../../components/StatusBarMain';
 const Cart = () => {
   const [cartItem, setCartItem] = useState([]);
   const [checkout, setcheckout] = useState(false);
@@ -79,19 +80,18 @@ const Cart = () => {
   };
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <FlatList
-          data={cartItem}
-          renderItem={cartitem}
-          ListFooterComponent={cartItem.length !== 0 && cartfooter}
+      <StatusBarMain />
+      <FlatList
+        data={cartItem}
+        renderItem={cartitem}
+        ListFooterComponent={cartItem.length !== 0 && cartfooter}
+      />
+      {cartItem.length === 0 && (
+        <EmptyPage
+          label="Cart is Empty"
+          image={require('../../assets/emptycart.png')}
         />
-        {cartItem.length === 0 && (
-          <EmptyPage
-            label="Cart is Empty"
-            image={require('../../assets/emptycart.png')}
-          />
-        )}
-      </ScrollView>
+      )}
       {checkout && <CheckOut amount={totalPrice} close={closecheckout} />}
       <Spacer />
       <NavBar active="cart" />

@@ -57,4 +57,7 @@ export const styles = StyleSheet.create({
   button: {
     paddingVertical: 5,
   },
+  categ: {
+    color: '#000',
+  },
 });
