@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 
 const Banner = () => {
   return (
@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
   imaage: {
     alignSelf: 'center',
     width: '100%',
+    borderRadius: 10,
   },
 });
