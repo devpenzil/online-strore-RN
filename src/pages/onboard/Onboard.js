@@ -2,13 +2,15 @@ import React from 'react';
 import {View, Text, ImageBackground, Image} from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import StatusBarMain from '../../components/StatusBarMain';
-import {token} from '../../axios/Axios';
+import SharedPreferences from 'react-native-shared-preferences';
 import {styles} from './Onboard.style';
 const Onboard = ({navigation}) => {
   const testfunction = () => {
-    token === ''
-      ? navigation.navigate('loginpage')
-      : navigation.navigate('home');
+    SharedPreferences.getItem('token', function (value) {
+      value !== null || undefined
+        ? navigation.navigate('home')
+        : navigation.navigate('loginpage');
+    });
   };
   return (
     <ImageBackground source={require('../../assets/onboardbg.png')}>

@@ -1,12 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Image, ScrollView, Pressable} from 'react-native';
 import Accordian from '../../components/Accordian';
 import PrimaryButton from '../../components/PrimaryButton';
 import StatusBarMain from '../../components/StatusBarMain';
 import {styles} from './ProductDetails.style';
-import base, {token, cmail} from '../../axios/Axios';
+import base from '../../axios/Axios';
+import SharedPreferences from 'react-native-shared-preferences';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 const ProductDetails = ({route, navigation}) => {
+  const [token, setToken] = useState('');
+  const [uemail, setUemail] = useState('');
+  useEffect(() => {
+    SharedPreferences.getItem('token', function (value) {
+      setToken(value);
+    });
+    SharedPreferences.getItem('email', function (value) {
+      setUemail(value);
+    });
+  }, []);
   const {data} = route.params;
   const [count, setCount] = useState(1);
   const [disable, setDisable] = useState(false);
@@ -20,7 +31,7 @@ const ProductDetails = ({route, navigation}) => {
     base
       .post('api/cart/addtocart', {
         token: token,
-        email: cmail,
+        email: uemail,
         newitem: {
           details: data,
           count: count,

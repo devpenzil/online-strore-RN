@@ -27,7 +27,8 @@ const LoginPage = ({navigation}) => {
       })
       .then(Response => {
         console.log(Response);
-        // SharedPreferences.setItem('token', 5345634);
+        SharedPreferences.setItem('token', Response.data.token);
+        SharedPreferences.setItem('email', Response.data.email);
         Toast.show({
           type: 'success',
           text1: `Welcome ${Response.data.name}`,

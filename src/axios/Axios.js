@@ -1,10 +1,10 @@
 import axios from 'axios';
-
+import SharedPreferences from 'react-native-shared-preferences';
 const base = axios.create({
   baseURL: 'https://ajosapp-server.vercel.app/',
 });
-export const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIzODBkYThjZTNmNTAwMDk1Y2UwYWUiLCJpYXQiOjE2MzkyMTQ2MDh9.Rv9r4_YRxA4GEzecFBpicqmqWb-QI9Csra2_a0DwNSc';
-
-export const cmail = 'qa1@yopmail.com';
+export const token = SharedPreferences.getItem('token', function (value) {
+  return value;
+});
+console.log(token);
 export default base;

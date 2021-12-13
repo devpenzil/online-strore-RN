@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, FlatList, Pressable} from 'react-native';
+import {View, Text, FlatList, Pressable} from 'react-native';
 import CartItem from '../../components/CartItem';
 import NavBar from '../../components/NavBar';
 import {styles} from './Cart.style';
-import base, {token, cmail} from '../../axios/Axios';
+import base from '../../axios/Axios';
 import EmptyPage from '../../components/EmptyPage';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import PrimaryButton from '../../components/PrimaryButton';
 import CheckOut from '../../components/CheckOut';
 import Spacer from '../../components/Spacer';
 import StatusBarMain from '../../components/StatusBarMain';
-const Cart = () => {
+const Cart = ({route}) => {
+  const {token, uemail} = route.params;
+  console.log(token, uemail);
   const [cartItem, setCartItem] = useState([]);
   const [checkout, setcheckout] = useState(false);
   useEffect(() => {
@@ -20,7 +22,7 @@ const Cart = () => {
     base
       .post('api/cart/getcart', {
         token: token,
-        email: cmail,
+        email: uemail,
       })
       .then(Response => {
         console.log(Response.data);
@@ -39,7 +41,7 @@ const Cart = () => {
     base
       .post('api/cart/clearcart', {
         token: token,
-        email: cmail,
+        email: uemail,
       })
       .then(Response => {
         console.log(Response.data);

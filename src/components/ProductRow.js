@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import base, {token} from '../axios/Axios';
+import base from '../axios/Axios';
 import {FlatList, Image, StyleSheet, Text, View, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-const ProductRow = ({cat}) => {
+
+const ProductRow = ({cat, token, uemail}) => {
   const navigation = useNavigation();
   const [products, setProducts] = useState([]);
   const onpress = data => {
@@ -11,19 +12,19 @@ const ProductRow = ({cat}) => {
     });
   };
   useEffect(() => {
-    base
-      .post('api/items/getbycategory', {
-        token: token,
-        category: cat,
-      })
-      .then(Response => {
-        // console.log(Response.data);
-        setProducts(Response.data);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  });
+    token &&
+      base
+        .post('api/items/getbycategory', {
+          token: token,
+          category: cat,
+        })
+        .then(Response => {
+          setProducts(Response.data);
+        })
+        .catch(Error => {
+          console.log(Error);
+        });
+  }, [token]);
   const renderItem = ({item}) => {
     return (
       <Pressable

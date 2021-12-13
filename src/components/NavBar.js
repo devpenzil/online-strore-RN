@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import SharedPreferences from 'react-native-shared-preferences';
 const NavBar = ({active}) => {
+  const [token, setToken] = useState('');
+  const [uemail, setUemail] = useState('');
+  useEffect(() => {
+    SharedPreferences.getItem('token', function (value) {
+      setToken(value);
+    });
+    SharedPreferences.getItem('email', function (value) {
+      setUemail(value);
+    });
+  }, []);
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -21,7 +32,10 @@ const NavBar = ({active}) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('cart');
+          navigation.navigate('cart', {
+            token,
+            uemail,
+          });
         }}>
         <Image style={styles.icon} source={require('../assets/cart.png')} />
         {active === 'cart' && <Text style={styles.icontext}>cart</Text>}

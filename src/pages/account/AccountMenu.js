@@ -1,13 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import MenuItem from '../../components/MenuItem';
 import Spacer from '../../components/Spacer';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {useNavigation} from '@react-navigation/native';
-
+import SharedPreferences from 'react-native-shared-preferences';
 const AccountMenu = () => {
   const navigation = useNavigation();
   const logout = () => {
+    SharedPreferences.clear();
     navigation.navigate('onboard');
     Toast.show({
       type: 'success',
