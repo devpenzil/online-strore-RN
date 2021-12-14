@@ -25,7 +25,9 @@ const NavBar = ({active}) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('explore');
+          navigation.navigate('explore', {
+            token,
+          });
         }}>
         <Image style={styles.icon} source={require('../assets/explore.png')} />
         {active === 'explore' && <Text style={styles.icontext}>explore</Text>}

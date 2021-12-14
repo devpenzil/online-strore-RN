@@ -3,9 +3,9 @@ import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Accordian from './Accordian';
 import PrimaryButton from './PrimaryButton';
 import {useNavigation} from '@react-navigation/native';
-import base, {token, cmail} from '../axios/Axios';
+import base from '../axios/Axios';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
-const CheckOut = ({amount, close}) => {
+const CheckOut = ({amount, close, token, umail}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -27,7 +27,7 @@ const CheckOut = ({amount, close}) => {
                 base
                   .post('api/cart/clearcart', {
                     token: token,
-                    email: cmail,
+                    email: umail,
                   })
                   .then(Response => {
                     navigation.navigate('orderaccepted');

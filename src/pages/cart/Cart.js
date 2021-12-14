@@ -94,7 +94,14 @@ const Cart = ({route}) => {
           image={require('../../assets/emptycart.png')}
         />
       )}
-      {checkout && <CheckOut amount={totalPrice} close={closecheckout} />}
+      {checkout && (
+        <CheckOut
+          amount={totalPrice}
+          close={closecheckout}
+          token={token}
+          umail={uemail}
+        />
+      )}
       <Spacer />
       <NavBar active="cart" />
     </View>

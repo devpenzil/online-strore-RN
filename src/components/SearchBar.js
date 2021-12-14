@@ -1,11 +1,17 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 
-const SearchBar = () => {
+const SearchBar = ({trigger, change, value}) => {
   return (
     <View style={styles.container}>
       <View style={styles.searchbox}>
-        <TextInput placeholder="Search here" placeholderTextColor="#000" />
+        <TextInput
+          placeholder="Search here"
+          placeholderTextColor="#000"
+          onBlur={trigger}
+          onChangeText={change}
+          value={value}
+        />
       </View>
     </View>
   );
